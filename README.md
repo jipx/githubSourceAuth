@@ -33,13 +33,13 @@ Please keep in mind that the security of your application depends on how you han
 
 In Node.js, JSON Web Tokens (JWT) work by using a library to create and verify tokens. The basic process is as follows:
 
-Creating a JWT: The library is used to create a JWT by encoding a payload (usually a JSON object containing user information) and signing it with a secret key. The resulting token can then be sent to the client.
+1. Creating a JWT: The library is used to create a JWT by encoding a payload (usually a JSON object containing user information) and signing it with a secret key. The resulting token can then be sent to the client.
 
-Sending the JWT: The token is sent to the server either in the Authorization header or as a query parameter, depending on the application's requirements.
+2. Sending the JWT: The token is sent to the server either in the Authorization header or as a query parameter, depending on the application's requirements.
 
-Verifying the JWT: When the server receives the token, it uses the same library and secret key to verify the signature and decode the payload of the token. If the signature is valid, the server can trust the claims in the payload. If the signature is invalid, the server should reject the request.
+3. Verifying the JWT: When the server receives the token, it uses the same library and secret key to verify the signature and decode the payload of the token. If the signature is valid, the server can trust the claims in the payload. If the signature is invalid, the server should reject the request.
 
-Authorizing the request: After verifying the JWT, the server can use the information in the payload to authorize the user's request. For example, the payload might contain a userId, which the server can use to check if the user has permission to perform a certain action.
+4. Authorizing the request: After verifying the JWT, the server can use the information in the payload to authorize the user's request. For example, the payload might contain a userId, which the server can use to check if the user has permission to perform a certain action.
 
 It's worth noting that JWT has some limitations, and should not be used in a scenario where the secret key could be compromised, because the attacker could easily create a token with any content and could impersonate any user.
 
