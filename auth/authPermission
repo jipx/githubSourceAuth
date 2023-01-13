@@ -1,0 +1,34 @@
+// jsonwebtoken packge is used
+var jwt = require("jsonwebtoken");
+var config = require("../config");
+
+var verifyPermission = {
+  verifyAdmin: function (req, res, next) {
+    if (req.role === "Admin") {
+      next();
+    } else {
+      res.status(403);
+      res.send(`{"Message":"Not Authorized"}`);
+    }
+  },
+
+  VerifySameUseOrAdmin: function (req, res, next) {
+    if (req.userid === req.params.userid || req.role === "admin") {
+      next();
+    } else {
+      res.status(403);
+      res.send(`{"Message":"Not Authorized"}`);
+    }
+  },
+
+  VerifySameUse: function (req, res, next) {
+    if (req.id === req.query.id) {
+      next();
+    } else {
+      res.status(403);
+      res.send(`{"Message":"Not Authorized"}`);
+    }
+  },
+};
+
+module.exports = verifPermission;
