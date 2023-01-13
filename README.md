@@ -14,7 +14,7 @@ To use these libraries, you will need to install them first using npm. Once inst
 
 Here is a simple example of how to use the jsonwebtoken library to create and verify a JWT:
 
-
+```
 const jwt = require('jsonwebtoken');
 
 // Create a JWT
@@ -26,6 +26,7 @@ console.log(token);
 // Verify a JWT
 const decoded = jwt.verify(token, secret);
 console.log(decoded); // { userId: 123 }
+```
 Please keep in mind that the security of your application depends on how you handle the secret key and the payload data. The payload should contain only the necessary information and the secret should be kept secret.
 
 You can also use the jwt in a express application using the middleware, it will check the token in the request and if valid it will set the decoded token in the request object.
